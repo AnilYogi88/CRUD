@@ -1,0 +1,11 @@
+.back{
+    float: right;
+}
+.signup{
+    margin: auto;
+    height:400px ;
+    width: 400px;
+}
+.form-control.ng-invalid.ng-touched.ng-pristine{
+    border: 2px solid red;
+}

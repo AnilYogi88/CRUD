@@ -1,0 +1,31 @@
+<div class="container signup" >
+  <h2 class="text-center"> Sign Up Page</h2>
+  <hr>
+  <form #signUp="ngForm">
+    <div class="from-group">
+      <label for="username">User Name</label>
+      <input type="text" class="form-control" id="username" placeholder="User Name" name="username" 
+      [(ngModel)]="client.username" ngModel #username="ngModel" minlength="5" required>
+      <div class="alert alert-danger" *ngIf="username.touched && !username.valid" >
+        <div *ngIf="username.errors.required">Username is required!</div>
+        <div *ngIf="!username.minlength"> Username should be at least 5 character. </div>
+      </div>
+    </div>
+    <div class="from-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+      [(ngModel)]="client.password" ngModel #password="ngModel"  minlength="5" required>
+      <div class="alert alert-danger" *ngIf="password.touched && !password.valid" >
+        <div *ngIf="password.errors.required">Password is required!</div>
+        <div *ngIf="!password.minlength"> Password should be at least 5 character. </div>
+      </div>
+    </div>  
+  </form>
+  <hr>
+  <div class="button">
+    <button (click)="addNewClient(client)" class="btn btn-primary" [disabled]="!signUp.valid">Sign Up</button>
+    <a routerLink="/"><button class="btn btn-primary back">Back</button></a>
+  </div>
+  <hr>
+  <h4 *ngIf="clientAdded">{{confirmation}}</h4>
+</div>

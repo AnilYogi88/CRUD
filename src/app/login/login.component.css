@@ -1,0 +1,12 @@
+.login{
+    margin: auto;
+    height:400px ;
+    width: 400px;
+}
+.form-control.ng-invalid.ng-touched.ng-pristine{
+    border: 2px solid red;
+}
+p{
+    margin:0;
+    padding: 0;
+}

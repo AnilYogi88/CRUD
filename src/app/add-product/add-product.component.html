@@ -1,0 +1,44 @@
+<div class = "container text-center">
+  <h1> Add New Product</h1>
+  <div class="text-right">
+   <a routerLink ="/home"><button class="btn btn-primary">Back</button></a>
+  </div>
+  <form  #productFrom="ngForm" (ngSubmit)="addNewProduct(product)">
+    <div class="form-group">
+      <label for="name">Name</label><br/>
+      <input type="text" class="form-control" id="name" placeholder="Product Name"  name="name" 
+      [(ngModel)]="product.name" ngModel #name="ngModel" required>
+      <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+        Name is required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="color">Color</label><br/>
+      <input type="text" class="form-control" id="color" placeholder="Product Color"  name="color" 
+      [(ngModel)]="product.color" ngModel #color="ngModel" required>
+      <div class="alert alert-danger" *ngIf="color.touched && !color.valid">
+        Color is required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="company">Company</label><br/>
+      <input type="text" class="form-control" id="company" placeholder="Product Company"  name="company"  
+      [(ngModel)]="product.company" ngModel #company="ngModel"required>
+      <div class="alert alert-danger" *ngIf="company.touched && !company.valid">
+        Company name is required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity</label><br/>
+      <input type="number" class="form-control" id="quantity" placeholder="Product Quantity"  name="quantity"  
+      [(ngModel)]="product.quantity" required>
+    </div>
+    <div>
+      <button type = "submit" [disabled]="!productFrom.valid">Add Product</button>
+    </div>
+  </form>
+  <hr>
+  <div class="alert alert-success" *ngIf="isAdded">
+    <h4>{{confirmString}}</h4>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.container{
+    margin: auto;
+    width: 500px;
+    height:500px;
+}
+.form-control.ng-invalid.ng-touched.ng-pristine{
+    border: 2px solid red;
+}

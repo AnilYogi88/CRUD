@@ -1,0 +1,24 @@
+<div class="text-center login" >
+ <h2>CRUD APP</h2>
+ <hr> 
+ <div class="alert alert-danger" *ngIf="error">{{error}}</div>
+ <form #loginForm="ngForm" (ngSubmit) = "login($event)" >
+    <div class="form-group">
+      <label for="userName">User Name</label>
+      <input type="email" class="form-control" id="userName" name="userName" ngModel #userName="ngModel" required>
+      <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">
+        User name is required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" ngModel #password="ngModel" required>
+      <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+        Password is required!
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log In</button>
+  </form>
+  <p>Don't have an Accout?</p>
+  <a routerLink="/sign-up"><p>Create One</p></a>
+</div>  
