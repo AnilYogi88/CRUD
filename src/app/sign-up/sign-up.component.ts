@@ -8,19 +8,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  confirmation:string="Successfully created an account";
-  clientAdded:boolean=false;
-  client:object={};
-  
-  addNewClient(client){
-    this.client={
-      "username": client.username,
-      "password": client.password
-    }
-    this.http.post("http://localhost:3000/clients",this.client).subscribe(
-      (res:any) => {this.clientAdded = true})
+  confirmation= 'Successfully created an account';
+  clientAdded= false;
+  client: object= {};
+
+  addNewClient(client) {
+    this.client = {
+      'username': client.username,
+      'password': client.password
+    };
+    this.http.post('http://localhost:3000/clients', this.client).subscribe(
+      (res: any) => {this.clientAdded = true; });
   }
 
   ngOnInit() {
